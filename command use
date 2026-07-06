@@ -1,0 +1,49 @@
+## Commands Used
+
+### Connect to EC2
+bash
+ssh -i docker-key.pem ubuntu@<EC2-PUBLIC-IP>
+
+### Update Ubuntu
+bash
+sudo apt update
+sudo apt upgrade -y
+
+### Install Docker
+bash
+sudo apt install docker.io -y
+sudo systemctl start docker
+sudo systemctl enable docker
+docker --version
+
+### Build Docker Image
+bash
+docker build -t docker-demo .
+
+### Run Docker Container
+bash
+docker run -d -p 80:80 --name web-container docker-demo
+
+### Verify Running Containers
+bash
+docker ps
+docker images
+
+### Stop and Remove Container
+bash
+docker stop web-container
+docker rm web-container
+
+ ### Remove Image
+bash
+docker rmi docker-demo
+
+
+### Git Commands
+bash
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin <repository-url>
+git push -u origin main
